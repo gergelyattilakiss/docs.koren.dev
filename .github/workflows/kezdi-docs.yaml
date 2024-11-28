@@ -38,7 +38,7 @@ jobs:
           version: '1.11'
       - uses: julia-actions/cache@v2
       - name: Configure doc environment
-        shell: julia --project=docs --color=yes {0}
+        shell: julia --project=docs/Kezdi.jl --color=yes {0}
         run: |
           using Pkg
           Pkg.develop(PackageSpec(path=pwd()))
@@ -49,7 +49,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCUMENTER_KEY: ${{ secrets.DOCUMENTER_KEY }}
       - name: Run doctests
-        shell: julia --project=docs --color=yes {0}
+        shell: julia --project=docs/Kezdi.jl --color=yes {0}
         run: |
           using Documenter: DocMeta, doctest
           using Kezdi
