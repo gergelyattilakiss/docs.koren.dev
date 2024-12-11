@@ -4,30 +4,30 @@ on:
     types: [copy-kezdi-docs]
   workflow_dispatch:
 jobs:
-  copy-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout docs repository
-        uses: actions/checkout@v4
-      - name: Clone Kezdi.jl documentation
-        run: |
-          git clone --depth 1 https://github.com/codedthinking/Kezdi.jl.git temp-docs
-      - name: Prepare documentation
-        run: |
-          mkdir -p docs/Kezdi.jl
-          cp -r temp-docs/docs/* docs/Kezdi.jl/
-          rm -rf temp-docs
-      - name: Commit and push changes
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add docs/Kezdi.jl
-          git commit -m "Update Kezdi.jl documentation" || exit 0
-          git push
+  #copy-docs:
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Checkout docs repository
+  #      uses: actions/checkout@v4
+  #   - name: Clone Kezdi.jl documentation
+  #      run: |
+  #        git clone --depth 1 https://github.com/codedthinking/Kezdi.jl.git temp-docs
+  #    - name: Prepare documentation
+  #      run: |
+  #        mkdir -p docs/Kezdi.jl
+  #        cp -r temp-docs/docs/* docs/Kezdi.jl/
+  #        rm -rf temp-docs
+  #    - name: Commit and push changes
+  #      run: |
+  #        git config user.name github-actions
+  #        git config user.email github-actions@github.com
+  #        git add docs/Kezdi.jl
+  #        git commit -m "Update Kezdi.jl documentation" || exit 0
+  #        git push
   docs:
     name: Documentation
     runs-on: ubuntu-latest
-    needs: copy-docs
+    #needs: copy-docs
     permissions:
       actions: write # needed to allow julia-actions/cache to proactively delete old caches that it has created
       contents: write
