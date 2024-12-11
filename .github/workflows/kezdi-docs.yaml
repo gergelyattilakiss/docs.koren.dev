@@ -44,6 +44,4 @@ jobs:
           using Pkg
           Pkg.instantiate()
       - name: Run build
-        shell: julia --project=docs/Kezdi.jl --color=yes {0}
-        run: |
-          include("docs/Kezdi.jl/make.jl")
+        run: julia --project=docs/Kezdi.jl --color=yes docs/Kezdi.jl/make.jl
