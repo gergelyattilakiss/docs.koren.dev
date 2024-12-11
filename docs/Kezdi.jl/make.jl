@@ -7,7 +7,7 @@ makedocs(;
     authors="Miklos Koren <miklos.koren@gmail.com>, Gergely Attila Kiss <corra971407@gmail.com>",
     sitename="Kezdi.jl",
     format=Documenter.HTML(;
-        canonical="https://codedthinking.github.io/Kezdi.jl",
+        canonical="https://gergelyattilakiss.github.io/kezdi-docs/",
         edit_link="main",
         assets=String[],
     ),
@@ -19,6 +19,6 @@ makedocs(;
 )
 
 deploydocs(;
-    repo="github.com/codedthinking/Kezdi.jl",
+    repo="https://github.com/gergelyattilakiss/docs.koren.dev",
     devbranch="main",
 )
