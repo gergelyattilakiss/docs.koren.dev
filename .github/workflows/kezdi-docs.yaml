@@ -50,7 +50,4 @@ jobs:
       - name: Run doctests
         shell: julia --project=docs/Kezdi.jl --color=yes {0}
         run: |
-          using Documenter: DocMeta, doctest
-          using Kezdi
-          DocMeta.setdocmeta!(Kezdi, :DocTestSetup, :(using Kezdi); recursive=true)
-          doctest(Kezdi)
+          include("docs/Kezdi.jl/make.jl")
