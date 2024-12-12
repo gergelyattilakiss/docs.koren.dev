@@ -11,11 +11,11 @@ jobs:
         uses: actions/checkout@v4
       - name: Clone Kezdi.jl documentation
         run: |
-          git clone --depth 1 https://github.com/codedthinking/Kezdi.jl.git/tree/github-pages temp-docs
+          git clone -b gh-pages --single-branch --depth 1 https://github.com/codedthinking/Kezdi.jl.git/ temp-docs
       - name: Prepare documentation
         run: |
           mkdir -p docs/Kezdi.jl
-          cp -r temp-docs/docs/* docs/Kezdi.jl/
+          cp -r temp-docs/dev/* docs/Kezdi.jl/
           rm -rf temp-docs
       - name: Commit and push changes
         run: |
@@ -42,5 +42,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/Kezdi.jl/build
+          publish_dir: ./docs/Kezdi.jl
           publish_branch: Kezdi.jl
